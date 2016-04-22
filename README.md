@@ -1,4 +1,4 @@
-# Slash Command for BoardGameGeek
+# Slack Slash Command for BoardGameGeek
 
 Setup:
 
