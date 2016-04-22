@@ -32,7 +32,11 @@ class BggThing
   end
 
   def name
-    game["name"].find {|name| name["type"] == "primary"}["value"]
+    if game["name"].is_a?(Array)
+      game["name"].find {|name| name["type"] == "primary"}["value"]
+    elsif game["name"].is_a?(Hash)
+      game["name"]["value"]
+    end
   end
 
   def thumbnail
