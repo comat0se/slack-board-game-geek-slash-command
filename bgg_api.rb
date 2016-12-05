@@ -1,20 +1,18 @@
 class BggApi
   def self.search(query_text, exact: nil)
-    BggResponse.new(
-      HTTParty.get(
-        'http://www.boardgamegeek.com/xmlapi2' + '/search',
-        query: {
-          query: query_text,
-          :type => 'boardgame',
-          :exact => exact
-        }
-      )
+    HTTParty.get(
+      'http://www.boardgamegeek.com/xmlapi2/search',
+      query: {
+        query: query_text,
+        :type => 'boardgame',
+        :exact => exact
+      }
     )
   end
 
   def self.get_thing(id)
-    BggThing.new(
-      HTTParty.get("http://www.boardgamegeek.com/xmlapi2" + "/thing", query: {:id => id})
+    HTTParty.get("http://www.boardgamegeek.com/xmlapi2/thing",
+      query: {:id => id}
     )
   end
 end
